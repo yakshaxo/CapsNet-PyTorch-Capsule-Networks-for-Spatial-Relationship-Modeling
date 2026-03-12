@@ -1,54 +1,40 @@
-CapsNet-PyTorch : Advanced Spatial-Aware Modeling
-Ce dépôt contient une implémentation robuste des Réseaux de Capsules (CapsNet), basée sur l'architecture pionnière proposée par Sara Sabour, Nicholas Frosst et Geoffrey Hinton. Contrairement aux réseaux de neurones convolutifs (CNN) traditionnels, les CapsNets utilisent le "Dynamic Routing" pour mieux préserver les relations hiérarchiques et spatiales entre les caractéristiques d'une image.
+CapsNet-PyTorch
+A streamlined implementation of Capsule Networks (CapsNets) using PyTorch.
 
-📌 Présentation du Projet
-L'objectif de ce projet est de fournir une structure modulaire permettant d'expérimenter la puissance des capsules. Les CapsNets résolvent le problème de la "perte d'information spatiale" liée au pooling dans les CNN, rendant le modèle beaucoup plus performant face aux transformations (rotation, inclinaison, échelle).
+Traditional Convolutional Neural Networks (CNNs) often struggle with spatial orientation—they might recognize a face even if the eyes and mouth are swapped. CapsNets solve this by using Dynamic Routing to preserve the hierarchical relationships between features.
 
-Points Forts :
-Dynamic Routing : Implémentation de l'algorithme de routage par accord.
+🚀 Key Features
+Spatial Awareness: Better at identifying objects regardless of rotation or scale.
 
-Invariance Spatiale : Meilleure reconnaissance des objets sous différents angles.
+Dynamic Routing: Implements the routing-by-agreement algorithm (Sabour et al., 2017).
 
-Architecture Modulaire : Code structuré pour faciliter l'adaptation à de nouveaux jeux de données (MNIST, Fashion-MNIST, etc.).
+Modular Design: Easy-to-read code designed for experimentation on MNIST and similar datasets.
 
-🏗️ Architecture du Modèle
-Le modèle est composé de trois blocs principaux :
-
-Convolution Layer : Extraction initiale des caractéristiques.
-
-Primary Capsules : Regroupement des neurones en vecteurs (capsules) représentant des entités physiques.
-
-Digit Capsules : Couche finale traitée par l'algorithme de routage dynamique pour la classification.
-
-🚀 Installation
-Clonez le dépôt et installez les dépendances nécessaires :
+🛠️ Quick Start
+1. Installation
+Clone the repo and install the requirements:
 
 Bash
-
 git clone https://github.com/yakshaxo/capsnet.git
 cd capsnet
 pip install -r requirements.txt
-📊 Utilisation
-Entraînement
-Pour lancer l'entraînement sur le dataset par défaut (MNIST) :
+2. Training
+Start training with default parameters:
 
 Bash
-
-python train.py --epochs 50 --batch_size 128
-Évaluation
-Pour tester le modèle entraîné :
+python train.py
+3. Evaluation
+Test your trained model's accuracy:
 
 Bash
+python evaluate.py --model_path ./path_to_model.pth
+📈 Performance
+CapsNet is designed to achieve high accuracy on MNIST (~99%) while requiring significantly less data to understand spatial variances compared to standard CNNs.
 
-python evaluate.py --model_path ./models/capsnet_v1.pth
-📈 Résultats
-Le modèle atteint une précision de ~99% sur l'ensemble de test MNIST après 50 époques, démontrant sa capacité à généraliser avec moins de paramètres que certains réseaux profonds classiques.
+📖 Reference
+This project is based on the paper:
+Sabour, Sara, Nicholas Frosst, and Geoffrey E. Hinton. "Dynamic routing between capsules." Advances in neural information processing systems 30 (2017).
 
-📚 Références
-Sabour, S., Frosst, N., & Hinton, G. E. (2017). Dynamic Routing Between Capsules. In NIPS.
+Maintained by krayem louay
 
-Développé par [Votre Nom/Pseudo] Projet réalisé dans le cadre de recherches sur l'apprentissage profond et la vision par ordinateur.
 
-Introduction aux réseaux de capsules (CapsNet)
-
-Cette vidéo explique de manière pédagogique le fonctionnement des réseaux de capsules et pourquoi ils représentent une alternative prometteuse aux réseaux de neurones convolutifs classiques.
